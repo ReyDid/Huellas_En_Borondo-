@@ -71,17 +71,7 @@
       //window.matchWebGLToCanvasSize = false;
       //window.devicePixelRatio = 1;
 
-      window.addEventListener("resize", resize);
-      function resizeFramebuffer() {
-         var [width, height] = getRenderBufferSize(window.innerWidth, window.innerHeight);
-         canvas.width = width;
-         canvas.height = height;
-      }
-      function resizeCanvas() {
-         var [width, height] = getSize(window.innerWidth, window.innerHeight);
-         canvas.style.width = width + "px";
-         canvas.style.height = height + "px";
-      }
+      
 
       
 
