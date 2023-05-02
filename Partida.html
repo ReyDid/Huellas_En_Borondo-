@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player |Ss| Prb_JuegosWeb_Movil</title>
+    <title>Unity WebGL Player |S| Prb_JuegosWeb_Movil</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -46,12 +46,10 @@
       </div>
     <script>
       import React, { useEffect } from "react";
-      import Unity, { Config } from "react-unity-webgl";
-
 
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/2.loader.js";
-      var config = new Config ({
+      var config = {
         dataUrl: buildUrl + "/2.data",
         frameworkUrl: buildUrl + "/2.framework.js",
         codeUrl: buildUrl + "/2.wasm",
@@ -59,7 +57,7 @@
         companyName: "DefaultCompany",
         productName: "Prb_JuegosWeb_Movil",
         productVersion: "0.1",
-      });
+      };
 
       var container = document.querySelector("#unity-container");
       var botonFllScrn = document.getElementById("cntndr");
@@ -78,15 +76,13 @@
 
     function App() {
        useEffect(function () {
-           config.on("canvas", function (canvas) {
-             canvas.width = 100;
-             canvas.height = 50;
-          });
+           canvas.width = 100;
+           canvas.height = 50;
        }, []);
 
        return (
          <Unity
-           config={config}
+           canvas={canvas}
            matchWebGLToCanvasSize={false}
            style={{ width: "100px", height: "100px" }}
          />
