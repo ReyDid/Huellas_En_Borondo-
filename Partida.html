@@ -70,8 +70,24 @@
 
       //window.matchWebGLToCanvasSize = false;
       //window.devicePixelRatio = 1;
+    //<Unity matchWebGLToCanvasSize={false} />
 
-      
+    function App() {
+       useEffect(function () {
+          unityContext.on("canvas", function (canvas) {
+             canvas.width = 100;
+             canvas.height = 50;
+          });
+       }, []);
+
+       return (
+         <Unity
+           unityContext={unityContext}
+           matchWebGLToCanvasSize={false}
+           style={{ width: "100px", height: "100px" }}
+         />
+       );
+    }
 
       
 
