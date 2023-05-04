@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player |S| Prb_JuegosWeb_Movil</title>
+    <title>Unity WebGL Player |Ss| Prb_JuegosWeb_Movil</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -67,26 +67,16 @@
           var fullscreenButton = document.querySelector("#unity-fullscreen-button");
           var mobileWarning = document.querySelector("#unity-mobile-warning");
 
-
-          //window.matchWebGLToCanvasSize = false;
-          //window.devicePixelRatio = 1;
-          //<Unity matchWebGLToCanvasSize={false} />
-
-
-          //canvas.style.width = "300px";
-          //canvas.style.height = "300px";
-
-
           if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
               container.className = "unity-mobile";
-              config.devicePixelRatio = 1;
+              //config.devicePixelRatio = 1;
               //mobileWarning.style.display = "block";
               mobileWarning.style.display = "none";
               setTimeout(() => {
                   //mobileWarning.style.display = "none";
               }, 5000);
           } else {
-              config.devicePixelRatio = 1;
+              //config.devicePixelRatio = 1;
 
               canvas.style.width = "960px";
               canvas.style.height = "540px";
@@ -97,6 +87,8 @@
 
           var script = document.createElement("script");
           script.src = loaderUrl;
+
+          window.devicePixelRatio = 1;
 
           script.onload = () => {
               createUnityInstance(canvas, config, (progress) => {
