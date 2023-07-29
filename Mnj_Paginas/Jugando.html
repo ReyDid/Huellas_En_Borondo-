@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="shortcut icon" href="../Recursos/Interfaz/Unity/favicon.ico">
+    <link rel="stylesheet" href="../Estilo.css">
+    <link rel="stylesheet" href="../Fuentes.css">
+    <title>Jugando | (H-E-B)</title>
+  </head>
+  <body id="Cuerpo-Jugando" class="Crp-Jg" onload="deshabilitaRetroceso()">
+    <div>
+      <iframe id="Cntndr-Jg" style="display: none;" class="Contenedor" src="Contenedores/Cntndr__Jg.html"></iframe>
+      <iframe id="Cntndr-Hstr" style="display: none;" class="Contenedor" src="Contenedores/Cntndr_Hstr.html"></iframe>
+      <iframe id="Cntndr-Crdts" style="display: none;" class="Contenedor" src="Contenedores/Cntndr_Crdts.html"></iframe>
+      <iframe id="Cntndr-Sprt" style="display: none;" class="Contenedor" src="Contenedores/Cntndr_Sprt.html"></iframe>
+    </div>
+
+    <div id="Contenido-Juego" class="Juego-Jg">
+        <div id="unity-container" class="unity-desktop">
+          <a id="a-Juego" class="a-jg" href="javascript:SlccnPgn('0')">
+            <div id="Barra-Canvas" class="BrrCnvs-Jg"><div class="a">Reanudar</div></div>
+            <div id="unity-canvas" class="Canvas-Jg">
+              <div id="unity-loading-bar">
+                <div id="unity-logo"></div>
+                <div id="unity-progress-bar-empty">
+                  <div id="unity-progress-bar-full"></div>
+                </div>
+              </div>
+              <div id="unity-mobile-warning">
+                WebGL builds are not supported on mobile devices.
+              </div>
+            </div>
+          </a>
+          
+          <div id="unity-footer">
+
+          </div>
+        </div>
+        <a id="X-Jg" style="display: none;" href="javascript:CrrJg()">
+          <img class="Icn-CjJg" src="../Recursos/Interfaz/Web/Icn_CrrJg.png">
+        </a>
+    </div>
+
+    <div id="Barra-Navegar" class="BrrNvgr-Jg">
+      <a href="javascript:SlccnPgn('')">
+        <div id="Inc-BrrNvgr">
+          <img id="Slccn-Jg-Img" class="Icn-BrrNvgr Icn-BrrNvgr-Slccn" src="../Recursos/Interfaz/Web/Icn_Logo.png">
+          <h5 style="bottom: -5px; left: 9%;">jugando</h5>
+        </div>
+      </a>
+      <a href="javascript:MstrOcltr()">
+        <div id="MstrOclt" class="Mstr">
+          <img class="Icn-MstrOclt" src="../Recursos/Interfaz/Web/Icn_MstrOclt-Cntnd.png">
+        </div>
+      </a>
+
+      <ul>
+        <li class="Opcion-BrrNvgr">
+          <img id="Slccn-Hstr-Img" src="../Recursos/Interfaz/Web/Icn_Slccn.png" style="display: none;">
+          <a id="Slccn-Hstr" href="javascript:SlccnPgn('Historia')">Historia</a>
+        </li>
+        <li class="Opcion-BrrNvgr">
+          <img id="Slccn-Crdts-Img" src="../Recursos/Interfaz/Web/Icn_Slccn.png" style="display: none;">
+          <a id="Slccn-Crdts" href="javascript:SlccnPgn('Creditos')">Creditos</a>
+        </li>
+        <li class="Opcion-BrrNvgr">
+          <img id="Slccn-Sprt-Img" src="../Recursos/Interfaz/Web/Icn_Slccn.png" style="display: none;">
+          <a id="Slccn-Sprt" href="javascript:SlccnPgn('Soporte')">Soporte</a>
+        </li>
+      </ul>
+
+      <a href="#">
+        <div id="Fnl-BrrNvgr">
+          <img class="Icn-BrrNvgr" src="../Recursos/Interfaz/Web/Icn_Usr.png">
+        </div>
+      </a>
+    </div>
+    <div id="arrb" class="arrb-jg"></div>
+
+
+    <script type="text/javascript">
+      // Pantalla: Unity
+      var buildUrl = "../Juego";
+      var loaderUrl = buildUrl + "/(Entrega).loader.js";
+      var config = {
+        dataUrl: buildUrl + "/(Entrega).data",
+        frameworkUrl: buildUrl + "/(Entrega).framework.js",
+        codeUrl: buildUrl + "/(Entrega).wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Prb_JuegosWeb_Movil",
+        productVersion: "0.1",
+      };
+      //
+      var container = document.querySelector("#unity-container");
+      var botonFllScrn = document.getElementById("Contenido-Juego");
+      var L = document.documentElement;
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var logo = document.querySelector("#unity-logo");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var mobileWarning = document.querySelector("#unity-mobile-warning");
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";// MOVIL
+        //config.devicePixelRatio = 1;
+        //mobileWarning.style.display = "block";
+        mobileWarning.style.display = "none";
+        setTimeout(() => {
+          //mobileWarning.style.display = "none";
+        }, 5000);
+      } 
+      else {
+        //config.devicePixelRatio = 1;
+
+        //Movil
+        //canvas.style.width = "960px";
+        //canvas.style.height = "540px";
+      }
+
+      canvas.style.background = "url('"buildUrl + "/2.jpg') center / cover";
+      loadingBar.style.display = "block";
+      logo.style.display = "none";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+
+      window.devicePixelRatio = .8;
+
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        })
+        .then((unityInstance) => {
+          if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            botonFllScrn.addEventListener("click", () => {
+              if (L.requestFullscreen) {
+                //L.requestFullscreen()
+              }
+            });
+          }
+          else {
+            canvas.onclick = () => {
+              //unityInstance.SetFullscreen(1);
+            };
+          }
+
+          loadingBar.style.display = "none";
+        })
+        .catch((message) => {
+          alert(message);
+        });
+      };
+      //
+      document.body.appendChild(script);
+
+
+
+
+      // EnEspera - EnJuego - EnPantallaCompleta
+      function EnEspr() {
+        document.title = "Jugando... (H-E-B)";
+        document.getElementById('MstrOclt').className = "Ocltr";
+
+        document.getElementById('X-Jg').style.display = 'block';
+        document.getElementById('arrb').className = "arrb-espr";
+        document.getElementById('Barra-Navegar').className = "";
+        document.getElementById('Cuerpo-Jugando').className = "Crp-Espr";
+        document.getElementById('Contenido-Juego').className = "Juego-Espr";
+        document.getElementById('a-Juego').className = "a-espr";
+        document.getElementById('unity-canvas').className = "Canvas-Espr";
+        document.getElementById('Barra-Canvas').className = "BrrCnvs-Espr";
+      }
+      function EnJg() {
+        document.title = "Jugando | (H-E-B)";
+        document.getElementById('MstrOclt').className = "Mstr";
+
+        document.getElementById('X-Jg').style.display = 'none';
+        document.getElementById('arrb').className = "arrb-jg";
+        document.getElementById('Barra-Navegar').className = "BrrNvgr-Jg";
+        document.getElementById('Cuerpo-Jugando').className = "Crp-Jg";
+        document.getElementById('Contenido-Juego').className = "Juego-Jg";
+        document.getElementById('a-Juego').className = "a-jg";
+        document.getElementById('unity-canvas').className = "Canvas-Jg";
+        document.getElementById('Barra-Canvas').className = "BrrCnvs-Jg";
+      }
+      function EnPntllCmplt() {
+
+      }
+      // Mostrar - Ocultar:
+      function MstrOcltr() {
+        switch(document.getElementById('Cntndr-Jg').style.display) {
+          case 'block':
+            EnJg();
+            document.getElementById('Cntndr-Jg').style.display = 'none';
+            break;
+          case 'none':
+            EnEspr();
+            document.getElementById('Cntndr-Jg').style.display = 'block';
+            break;
+        }
+      }
+      // Seleccion Pagina
+      function SlccnPgn(pgn) {
+        if (pgn == '') {
+          document.getElementById('Slccn-Jg-Img').classList.add("Icn-BrrNvgr-Slccn");
+        }
+        if (pgn == '0') {
+          EnJg();
+          document.getElementById('Slccn-Jg-Img').classList.add("Icn-BrrNvgr-Slccn");
+        }
+        else {
+          if (pgn != '') {
+            EnEspr();
+          }
+          else {
+            document.getElementById('MstrOclt').style.display = 'block';
+          }
+        }
+
+        if (document.getElementById('Cntndr-Hstr').style.display == 'block' ||
+            document.getElementById('Cntndr-Crdts').style.display == 'block' ||
+            document.getElementById('Cntndr-Sprt').style.display == 'block') {
+
+          document.getElementById('Cntndr-Jg').style.display = 
+          (pgn != 'Historia' && pgn != 'Creditos' && pgn != 'Soporte')
+          ? 'block' : 'none';
+        }
+        if (pgn != '') {
+          document.getElementById('MstrOclt').style.display = 'block';
+          document.getElementById('Cntndr-Jg').style.display = 'none';
+        }
+
+        document.getElementById('Cntndr-Hstr').style.display = pgn === 'Historia' ? 'block' : 'none';
+        document.getElementById('Slccn-Hstr-Img').style.display = pgn === 'Historia' ? 'block' : 'none';
+        document.getElementById('Slccn-Hstr').className = pgn === 'Historia' ? "Opcn-Slccn" : "";
+        //
+        document.getElementById('Cntndr-Crdts').style.display = pgn === 'Creditos' ? 'block' : 'none';
+        document.getElementById('Slccn-Crdts-Img').style.display = pgn === 'Creditos' ? 'block' : 'none';
+        document.getElementById('Slccn-Crdts').className = pgn === 'Creditos' ? "Opcn-Slccn" : "";
+        //
+        document.getElementById('Cntndr-Sprt').style.display = pgn === 'Soporte' ? 'block' : 'none';
+        document.getElementById('Slccn-Sprt-Img').style.display = pgn === 'Soporte' ? 'block' : 'none';
+        document.getElementById('Slccn-Sprt').className = pgn === 'Soporte' ? "Opcn-Slccn" : "";
+        if (pgn === 'Historia' || pgn === 'Creditos' || pgn === 'Soporte') {
+          document.getElementById('MstrOclt').style.display = 'none';
+          document.getElementById('Slccn-Jg-Img').classList.remove("Icn-BrrNvgr-Slccn");
+        }
+      }
+      // Cerrar Juego
+      function CrrJg() {
+        if (document.getElementById('Cntndr-Hstr').style.display == 'block') {
+          window.location = "_Historia.html";
+        }
+        else if (document.getElementById('Cntndr-Crdts').style.display == 'block') {
+          window.location = "_Creditos.html";
+        }
+        else if (document.getElementById('Cntndr-Sprt').style.display == 'block') {
+          window.location = "_Soporte.html";
+        }
+        else {
+          window.location = "../Index.html";
+        }
+      }
+
+
+
+
+      // Confirmar: Salir de pagina
+      window.onbeforeunload = function() {
+        return "¿Estás seguro que deseas salir de la actual página?";
+      }
+
+      function deshabilitaRetroceso(){
+        window.location.hash="no-back-button";
+        window.location.hash="Again-No-back-button" //chrome
+        window.onhashchange=function(){window.location.hash="no-back-button";}
+      }
+      </script>
+  </body>
+</html>
