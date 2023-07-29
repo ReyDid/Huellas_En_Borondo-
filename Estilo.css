@@ -1,0 +1,272 @@
+* {
+	font-family: CreatoDisplay-Regular;
+	color: white;
+}
+.a, a {
+	font-size: 20px;
+	text-decoration: none;
+	text-align: center;
+}
+/*-*/
+body {
+
+}
+
+
+
+
+/* Web */
+#Barra-Navegar {
+	/*display: none;*/
+	position: fixed;
+	top: 0px;
+	left: 0px;
+
+	width: 100%;
+	height: 66px;
+
+	background-color: #a45aff;
+}
+.Icn-BrrNvgr {
+	width: 50px;
+	/*filter: invert(73%) sepia(19%) saturate(1482%) hue-rotate(337deg) brightness(101%) contrast(101%);*/
+	filter: invert(100%);
+}
+.Icn-BrrNvgr-Slccn {
+	filter: invert(76%) sepia(85%) saturate(977%) hue-rotate(320deg) brightness(102%) contrast(102%);
+}
+#Inc-BrrNvgr h5 {
+	position: absolute;
+	font-size: 9px;
+	margin: 0px;
+	padding: 4px;
+
+	text-align: center;
+
+	background-color: black;
+	border-radius: 40px;
+}
+#Inc-BrrNvgr {
+	position: absolute;
+	left: 8px;
+	bottom: 9px;
+}
+#MstrOclt {
+	position: absolute;
+	bottom: -50px;
+}
+.Mstr {
+	transform: rotate(180deg);
+}
+.Ocltr {
+	transform: rotate(0deg);
+}
+.Icn-MstrOclt {
+	width: 50px;
+	filter: opacity(25%);
+}
+#Barra-Navegar ul {
+	position: absolute;
+	left: 7%;
+	bottom: -16px;
+}
+.Opcion-BrrNvgr img {
+	/*position: absolute;
+	top: 18px;
+	left: 8.8%;
+	width: 20px;*/
+}
+.Opcion-BrrNvgr img {
+	position: absolute;
+	top: 18px;
+	transform: translate(-3px);
+	width: 20px;
+	height: 20px;
+}
+.Opcn-Slccn {
+	color: #ffaa52;
+	text-decoration: blink;
+}
+.Opcion-BrrNvgr {
+	display: inline-flex;
+}
+.Opcion-BrrNvgr a {
+	padding-top: 28px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 18px;
+}
+.Opcion-BrrNvgr a:hover {
+	background-color: #733ab9;
+}
+#Fnl-BrrNvgr {
+	position: absolute;
+	right: 10px;
+	bottom: 2px;
+}
+/*-*/
+#Cuerpo {
+	width: 100%;
+	min-height: 100%;
+
+	background-color: #433668;
+}
+/*-*/
+#Contenido {
+	position: absolute;
+	right: 0px;
+	width: 450px;
+	min-height: 100%;
+}
+.Cntnd {
+	background-color: rgba(1, 1, 1, .3);
+}
+#Infrmcn-Jg {
+	padding-top: 333px;
+}
+#Infrmcn-Hstr {
+	padding-top: 22px;
+}
+.Informacion {
+	padding: 33px;
+}
+.Aa {
+	position: absolute;
+	top: 202px;
+
+}
+.Aa h3 {
+	font-size: 18px;
+}
+.Texto {
+	text-align: justify;
+}
+/*-*/
+.Icn-CjJg {
+	position: absolute;
+	top: -5px;
+	right: 3px;
+	width: 18px;
+}
+#Caja-Juego {
+	position: absolute;
+	top: 110px;
+	left: 15%;
+	width: 70%;
+	height: 70%;
+	block-size: 200px;
+
+	background-color: black;
+	border-radius: 55px;
+}
+#Barra-Caja {
+	width: 100%;
+	height: 22%;
+
+	text-align: center;
+
+	background-color: #958ff4;
+	border-radius: 55px 55px 0px 0px;
+}
+#Barra-Caja div {
+	padding-top: 11px;
+}
+#Juego {
+	width: 100%;
+	height: 78%;
+
+	background-color: #131929;
+	background-size: 100%;
+	background-image: url('Recursos/Interfaz/Web/Mstr_Juego.gif');
+	background-repeat: none;
+	border-radius: 0px 0px 55px 55px;
+}
+/*-*/
+.Contenedor {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	min-height: 100%;
+
+	border: none;
+}
+#Contenedor {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	min-height: 100%;
+}
+
+
+
+
+/* Unity */
+/*@media only screen and (orientation:portrait) {
+    #Cuerpo-Jugando {
+        position: relative;
+        width: 2210px;
+        height: 2000px;
+        transform: rotate(90deg);
+    }
+
+    #Contenido-Juego {
+        position: absolute;
+        width: 2420px;
+        height: 1580px;
+        left: 14.4%;
+        top: 26%;
+        position: fixed;
+    }
+}*/
+@media only screen and (orientation:portrait) {
+	.Crp-Nrml {background-size: 50%;}
+	.Crp-Espr {background-size: 50%;}
+	.arrb-espr, .arrb-jg {display: none;}
+	.Juego-Espr {right: 6%;}
+	.Canvas-Jg {position: fixed; top: 0%; right: -5%; transform: rotate(90deg); width: 120%; height: 111%;}
+	.Canvas-Espr {position: fixed; background: #231F20; width: 100%; height: 139px; border-radius: 0px 0px 30px 30px;}
+	.W {display: none;}
+	#G {height: 69vh; position: absolute; transform: translate(0vh, -0vh); top: 20%}
+}
+@media only screen and (orientation:landscape) {
+	.Crp-Nrml {background-size: 30%;}
+	.Crp-Espr {background-size: 30%;}
+	.arrb-jg {position: relative; bottom: 0px; width: 100%; height: 4px; background-color: black;}
+	.BrrNvgr-Jg {border-radius: 22px 22px 0px 0px;}
+	.Juego-Espr {right: 4.5%;}
+	.Canvas-Jg {position: absolute; background: #231F20; width: 100%; height: 100%; border-radius: 30px 30px 30px 30px;}
+	.Canvas-Espr {position: fixed; background: #231F20; width: 100%; height: 78%; border-radius: 0px 0px 30px 30px;}
+	.W {display: block;}
+	#G {height: 90vh; position: absolute; transform: translate(50vh, -50vh); top: 60%;}
+}
+/*-*/
+#Cuerpo-Jugando {position: absolute; top: -11px; right: -8px; width: 100%; min-height: 100%;}
+.Crp-Nrml {background-color: #433668; background-image: url('Recursos/Interfaz/Web/PtrnFnd_Crp.png');}
+.Crp-Espr {background-color: #433668; background-image: url('Recursos/Interfaz/Web/PtrnFnd_Crp.png');}
+.Crp-Jg {background-color: black;}
+.Juego-Espr {position: absolute; bottom: 39px; transform: scale(1.16); width: 262px; height: 169px;}
+.Juego-Jg {position: absolute; width: 100%; height: 100%;}
+.a-espr {cursor: pointer;}
+.a-jg {cursor: default;}
+/*-*/
+#unity-container {}
+#unity-container .unity-desktop {}
+#unity-container.unity-mobile {}
+.BrrCnvs-Espr {display: block; width: 100%; height: 40px; background-color: #958ff4; border-radius: 30px 30px 0px 0px;}
+.BrrCnvs-Jg {display: none;}
+#Barra-Canvas div {
+	padding-top: 8px;
+}
+/*-*/
+#unity-loading-bar {position: absolute; top: 50%; left: 50%; transform: translate(-40%, -70%); display: none;}
+#unity-logo { width: 154px; height: 130px; background: url('Recursos/Interfaz/Unity/unity-logo-dark.png') no-repeat center }
+#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('Recursos/Interfaz/Unity/progress-bar-empty-dark.png') no-repeat center }
+#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('Recursos/Interfaz/Unity/progress-bar-full-dark.png') no-repeat center }
+#unity-footer { position: relative }
+.unity-mobile #unity-footer { display: none }
+#unity-webgl-logo { float:left; width: 204px; height: 38px; background: url('Recursos/Interfaz/Unity/webgl-logo.png') no-repeat center }
+#unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
+#unity-fullscreen-button { float: right; width: 38px; height: 38px; background: url('Recursos/Interfaz/Unity/fullscreen-button.png') no-repeat center }
+#unity-mobile-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
